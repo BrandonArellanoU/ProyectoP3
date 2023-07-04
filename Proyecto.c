@@ -17,7 +17,6 @@ int main(int argc, char const *argv[])
     int contador;
     time_t time_now = time(NULL);
     struct tm *time_d = localtime(&tiempo_actual);
-    char tec;
     printf("Hola Proyecto");
     return 0;
 }
