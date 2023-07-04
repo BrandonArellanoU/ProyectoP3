@@ -12,6 +12,12 @@ int main(int argc, char const *argv[])
     int eliminar_item;
     int var1;
     int cantidad;
+    FILE *arch;
+    char lin [100];
+    int contador;
+    time_t time_now = time(NULL);
+    struct tm *time_d = localtime(&tiempo_actual);
+    char tec;
     printf("Hola Proyecto");
     return 0;
 }
