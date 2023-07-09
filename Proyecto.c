@@ -89,6 +89,32 @@ do{
             system("cls");
             break;
         case 3:
+           totalM = 0;
+            totalR = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                totalM = 0;
+                totalR = 0;
+                printf("Turno %d:\n", i + 1);
+                for (int j = 0; j < 3; j++)
+                {
+                    printf("Ingrese la cantidad de muebles '%s' que se hicieron: ", muebles[j].nombre_mueble);
+                    scanf("%d", &cant);
+                    totalM += cant * muebles[j].cantidad_materia_prima;
+                    totalR += cant * muebles[j].cantidad_residuo;
+                    if (mayor < totalR)
+                    {
+                        mayor = totalR;
+                        mayorIn = i;
+                    }
+                }
+                printf("El total de materia prima usada es: %d\nEl total de materia prima desperdiciada es: %d\n", totalM, totalR);
+                fprintf(archivo, "Durante el turno %d el total de materia prima usada es: %d\nEl total de materia prima desperdiciada es: %d\n", i + 1, totalM, totalR);
+            }
+
+            printf("El turno con más desperdicio fue el turno %d con %d de desperdicio\n", mayorIn + 1, mayor);
+            fprintf(archivo, "El turno con más desperdicio fue el turno %d con %d de desperdicio\n", mayorIn + 1, mayor);
+            break;
         case 4:
             flag = 0;
             break;
