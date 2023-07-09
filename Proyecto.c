@@ -67,10 +67,34 @@ do{
         scanf("%d", &opcion);
        switch(opcion){
         case 1:
+           system("cls");
+            // Muestra en pantalla la información de los muebles almacenados en el arreglo "muebles"
+            for (int i = 0; i < 3; i++)
+            {
+                printf("Mueble %d: %s ocupa %d de materia prima y deja %d de residuo\n", i + 1, muebles[i].nombre_mueble, muebles[i].cantidad_materia_prima, muebles[i].cantidad_residuo);
+            }
+            printf("\n");
+            break;
         case 2:
+           system("cls");
+            printf("Ingrese el numero del mueble a modificar (1 - 3)\n");
+            scanf("%d", &mueble);
+            printf("Ingrese el nuevo nombre del mueble: \n");
+            scanf("%s", muebles[mueble].nombre_mueble);
+            printf("Ingrese la cantidad de materia prima que gasta: \n");
+            scanf("%d", &muebles[mueble].cantidad_materia_prima);
+            printf("Ingrese la cantidad de residuo que genera: \n");
+            scanf("%d", &muebles[mueble].cantidad_residuo);
+            EscribirMuebles(muebles, archivo);
+            system("cls");
+            break;
         case 3:
         case 4:
-        default: 
+            flag = 0;
+            break;
+        default:
+            printf("Opcion no valida\n");
+            break;
 
     
    }
