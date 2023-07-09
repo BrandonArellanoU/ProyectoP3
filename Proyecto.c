@@ -45,6 +45,9 @@ muebles[1].cantidad_residuo = 5;
 strcpy(muebles[2].nombre_mueble, "Mueble3");
 muebles[2].cantidad_materia_prima = 20;
 muebles[2].cantidad_residuo = 7;
+    
+    EscribirMuebles(muebles, archivo);
+
 
  //menu 
 do{
