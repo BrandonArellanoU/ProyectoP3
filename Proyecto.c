@@ -30,6 +30,10 @@ int main() {
         printf("Error opening the file.\n");
         return 1;
     }
+
+    int flag = 1;
+int mueble, mayorIn = 0, mayor = 0, cant, totalM = 0, totalR = 0;
+
  //menu 
 do{
    switch(opcionesusu){
