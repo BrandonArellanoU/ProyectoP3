@@ -19,6 +19,9 @@ struct Mueble {
     int cantidad_residuo;
 };
 
+// Prototipo de la función para escribir los datos de los muebles en un archivo
+void EscribirMuebles(struct Mueble* muebles, FILE* archivo);
+
 int main(int argc, char const *argv[])
 {
  //Se declaran variables
