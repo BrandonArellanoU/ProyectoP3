@@ -8,6 +8,9 @@ Universidad de las Americas - Software
 //Se agrega librerias que se puede utilizar
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <time.h>
 
 // Definición de la estructura "Mueble"
 struct Mueble {
