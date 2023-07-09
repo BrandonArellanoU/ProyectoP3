@@ -9,14 +9,12 @@ Universidad de las Americas - Software
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Productos
-{
-    char nombre[30];
-    int materiaUsada;
-    int velocidad;
-    float eficiencia;
+// Definición de la estructura "Mueble"
+struct Mueble {
+    char nombre_mueble[50];
+    int cantidad_materia_prima;
+    int cantidad_residuo;
 };
-
 
 int main(int argc, char const *argv[])
 {
