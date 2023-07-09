@@ -34,6 +34,18 @@ int main() {
     int flag = 1;
 int mueble, mayorIn = 0, mayor = 0, cant, totalM = 0, totalR = 0;
 
+    struct Mueble muebles[3];
+
+strcpy(muebles[0].nombre_mueble, "Mueble1");
+muebles[0].cantidad_materia_prima = 10;
+muebles[0].cantidad_residuo = 2;
+strcpy(muebles[1].nombre_mueble, "Mueble2");
+muebles[1].cantidad_materia_prima = 15;
+muebles[1].cantidad_residuo = 5;
+strcpy(muebles[2].nombre_mueble, "Mueble3");
+muebles[2].cantidad_materia_prima = 20;
+muebles[2].cantidad_residuo = 7;
+
  //menu 
 do{
    switch(opcionesusu){
