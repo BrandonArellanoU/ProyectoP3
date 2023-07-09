@@ -22,12 +22,12 @@ struct Mueble {
 // Prototipo de la función para escribir los datos de los muebles en un archivo
 void EscribirMuebles(struct Mueble* muebles, FILE* archivo);
 
-int main(int argc, char const *argv[])
+int main(){
     // Abre el archivo "Datos.csv" en modo escritura y lectura
     FILE* archivo = fopen("Datos.csv", "w+");  
     if (archivo == NULL) {
         // Muestra un mensaje de error si no se puede abrir el archivo
-        printf("Error opening the file.\n"); 
+        printf("Error al abrir el archivo.\n"); 
         return 1;
     }
 
@@ -58,20 +58,27 @@ int main(int argc, char const *argv[])
 
  //menu 
 do{
-   switch(opcionesusu){
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    default: 
+        int opcion;
+        printf("Ingrese una opcion:\n");
+        printf("1. Ver muebles\n");
+        printf("2. Modificar datos muebles\n");
+        printf("3. Ingresar datos de turnos\n");
+        printf("4. Salir\n");
+        scanf("%d", &opcion);
+       switch(opcion){
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        default: 
 
     
    }
 
 }while(opcionesusu !=0);
- 
-    return 0;
-
+    // Cierra el archivo
+    fclose(archivo); 
+return 0;
 }
 
 // Función para escribir los datos de los muebles en un archivo
