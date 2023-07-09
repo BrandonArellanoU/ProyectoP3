@@ -24,21 +24,12 @@ void EscribirMuebles(struct Mueble* muebles, FILE* archivo);
 
 int main(int argc, char const *argv[])
 {
- //Se declaran variables
-    int opcionesusu;
-    int numero_maquinas;
-    char maquina_n[30];
-    float n_materia_prima;
-    float n_uso_prima;
-    int eliminar_item;
-    int var1;
-    int cantidad;
-    FILE *arch;
-    char lin [100];
-    int contador;
-    time_t time_now = time(NULL);
-    struct tm *time_d = localtime(&tiempo_actual);
-
+int main() {
+    FILE* archivo = fopen("Datos.csv", "w+");
+    if (archivo == NULL) {
+        printf("Error opening the file.\n");
+        return 1;
+    }
  //menu 
 do{
    switch(opcionesusu){
