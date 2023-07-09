@@ -28,9 +28,10 @@ int main(){
     if (archivo == NULL) {
         // Muestra un mensaje de error si no se puede abrir el archivo
         printf("Error al abrir el archivo.\n"); 
+        //retorna el valor de 1 
         return 1;
     }
-
+    //inicializa la flag en 1
     int flag = 1;
     // Variables utilizadas para diferentes seguimientos
     int mueble, mayorIn = 0, mayor = 0, cant, totalM = 0, totalR = 0;  
@@ -58,25 +59,33 @@ int main(){
 
  //menu 
 do{
+        // declaracion de la funcion opcion
         int opcion;
+        //imprimimos las opciones del menu
         printf("Ingrese una opcion:\n");
         printf("1. Ver muebles\n");
         printf("2. Modificar datos muebles\n");
         printf("3. Ingresar datos de turnos\n");
         printf("4. Salir\n");
+        //leemos la opcion
         scanf("%d", &opcion);
-       switch(opcion){
+        //hacemos un switch para las opciones 
+        switch(opcion){
         case 1:
-           system("cls");
+            //limpiamos la pantalla 
+            system("cls");
             // Muestra en pantalla la información de los muebles almacenados en el arreglo "muebles"
             for (int i = 0; i < 3; i++)
             {
+                //imprimimos la informacion
                 printf("Mueble %d: %s ocupa %d de materia prima y deja %d de residuo\n", i + 1, muebles[i].nombre_mueble, muebles[i].cantidad_materia_prima, muebles[i].cantidad_residuo);
             }
             printf("\n");
             break;
         case 2:
-           system("cls");
+            //limpiamos la pantalla
+            system("cls");
+            //imprimimos y solicitamos la informacion 
             printf("Ingrese el numero del mueble a modificar (1 - 3)\n");
             scanf("%d", &mueble);
             printf("Ingrese el nuevo nombre del mueble: \n");
@@ -85,49 +94,61 @@ do{
             scanf("%d", &muebles[mueble].cantidad_materia_prima);
             printf("Ingrese la cantidad de residuo que genera: \n");
             scanf("%d", &muebles[mueble].cantidad_residuo);
+            //llamamos a la funcion y enviamos parametros
             EscribirMuebles(muebles, archivo);
+            //limpamos la pantalla
             system("cls");
             break;
         case 3:
-           totalM = 0;
+            //inicializamos las variables 
+            totalM = 0;
             totalR = 0;
+            //usamos un for para imprimir
             for (int i = 0; i < 3; i++)
             {
                 totalM = 0;
                 totalR = 0;
                 printf("Turno %d:\n", i + 1);
+                //for anidado para llenar las opciones 
                 for (int j = 0; j < 3; j++)
                 {
+                    //imprimimos y solicitamos la informacion
                     printf("Ingrese la cantidad de muebles '%s' que se hicieron: ", muebles[j].nombre_mueble);
                     scanf("%d", &cant);
+                    //recorre en el array
                     totalM += cant * muebles[j].cantidad_materia_prima;
                     totalR += cant * muebles[j].cantidad_residuo;
+                    //usamos una condicional 
                     if (mayor < totalR)
                     {
                         mayor = totalR;
                         mayorIn = i;
                     }
                 }
+                //imprimimos la informacion
                 printf("El total de materia prima usada es: %d\nEl total de materia prima desperdiciada es: %d\n", totalM, totalR);
+                //imprimimos en el archivo
                 fprintf(archivo, "Durante el turno %d el total de materia prima usada es: %d\nEl total de materia prima desperdiciada es: %d\n", i + 1, totalM, totalR);
             }
-
+            //imprime la informacion
             printf("El turno con más desperdicio fue el turno %d con %d de desperdicio\n", mayorIn + 1, mayor);
+            //imprime en el archivo
             fprintf(archivo, "El turno con más desperdicio fue el turno %d con %d de desperdicio\n", mayorIn + 1, mayor);
+            //termina su ejecucion
             break;
         case 4:
+            //cambia el valor de la flag para que termien el buble
             flag = 0;
             break;
         default:
+            //imprime si escogemos una opcion incorrecta
             printf("Opcion no valida\n");
             break;
-
-    
    }
-
 }while(opcionesusu !=0);
     // Cierra el archivo
     fclose(archivo); 
+//no retorna nada
 return 0;
 }
 
@@ -144,6 +165,7 @@ void EscribirMuebles(struct Mueble *muebles, FILE *archivo)
     // Escribe los datos de los muebles en el archivo, separados por punto y coma
     for (int i = 0; i < 3; i++)
     {
+        //imprime en el archivo
         fprintf(archivo, "%s;%d;%d\n", muebles[i].nombre_mueble, muebles[i].cantidad_materia_prima, muebles[i].cantidad_residuo);
     }
     // Limpia el búfer de salida para asegurar que los datos se escriban en el archivo
