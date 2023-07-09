@@ -48,6 +48,10 @@ muebles[2].cantidad_residuo = 7;
     
     EscribirMuebles(muebles, archivo);
 
+    time_t tiempo = time(NULL);
+struct tm* tiempo_descompuesto = localtime(&tiempo);
+
+
 
  //menu 
 do{
